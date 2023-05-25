@@ -20,6 +20,9 @@ var (
 
 	DrugController      controllers.Drug
 	DrugRouteController routes.DrugRouteController
+
+	VaccinationController      controllers.Vaccination
+	VaccinationRouteController routes.VaccinationRouteController
 )
 
 func init() {
@@ -38,6 +41,9 @@ func init() {
 
 	DrugController = controllers.NewDrugController(initializers.DB)
 	DrugRouteController = routes.NewRouteDrugController(DrugController)
+
+	VaccinationController = controllers.NewVaccinationController(initializers.DB)
+	VaccinationRouteController = routes.NewRouteVaccinationController(VaccinationController)
 
 	server = gin.Default()
 }
@@ -58,6 +64,7 @@ func main() {
 
 	AuthRouteController.AuthRoute(router)
 	DrugRouteController.DrugRoute(router)
+	VaccinationRouteController.VaccinationRoute(router)
 
 	log.Fatal(server.Run(":" + config.ServerPort))
 }
