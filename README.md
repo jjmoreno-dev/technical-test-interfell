@@ -14,7 +14,7 @@ technical-test-interfell
 ## Installation and Run Project
 
 ```bash
-  git clone https://github.com/jjmoreno-dev/template-crud.git
+  git clone https://github.com/jjmoreno-dev/technical-test-interfell.git
   cd technical-test-interfell
   go mod tidy
   docker-compose up -d
